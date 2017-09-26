@@ -5,10 +5,9 @@ const User = require('../models/user')
 
 let userController = {
   'post': {
-    "createUser": async (req, res, next) => {
-      const phoneNumber = req.body.phoneNumber
+    'createUser': async (req, res, next) => {
       const nickname = req.body.nickname
-      const peroUserId = req.body.peroUserId
+      const token = req.body.token
       let user
       try {
         user = await User.findUser({phoneNumber: phoneNumber})
@@ -29,7 +28,7 @@ let userController = {
       } else {
         try {
           user = await User.createUser({
-            phoneNumber: phoneNumber,
+            token: token,
             nickname: nickname
           })
         } catch (error) {
