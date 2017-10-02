@@ -150,6 +150,10 @@ void wrong() {
     digitalWrite(led[2], LOW);
     digitalWrite(led[3], LOW);
   }
+
+  if (level != 1) {
+    Serial.println(level - 1);
+  }
 }
 
 void fail() {
@@ -217,10 +221,6 @@ void input() {
       }
     }
   }
-
-  Serial.print("inputLevel: ");
-  Serial.print(inputLevel);
-  Serial.print("\n");
 
   if (inputLevel >= level && level != 0) {
     bingo();
