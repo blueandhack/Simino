@@ -4,7 +4,7 @@ import json
 
 usbport = '/dev/cu.usbmodem1441'
 token = ''
-url = ''
+url = 'https://api.simino.xyz/v1/record/createRecord'
 
 def main():
     ser = serial.Serial(usbport, 9600)
