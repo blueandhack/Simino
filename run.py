@@ -4,8 +4,8 @@ import json
 
 usbport = '/dev/cu.usbmodem1441'
 token = 'a38aaddc-ac66-46f7-9faf-80c4ccfe8e7c'
-# url = 'https://api.simino.xyz/v1/record/createRecord'
-url = 'http://127.0.0.1:4000/v1/record/createRecord'
+url = 'https://api.simino.xyz/v1/record/createRecord'
+# url = 'http://127.0.0.1:4000/v1/record/createRecord'
 
 def main():
     ser = serial.Serial(usbport, 9600)
@@ -16,16 +16,18 @@ def main():
         print('score ', score)
         data = {'token':token, 'score':score }
         data = json.dumps(data)
-        feedback = requests.post(url, data = data)
+        headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+        feedback = requests.post(url, data = data, headers= headers)
         print(feedback)
 
 def test():
     score = 1
     data = {'token': token, 'score': score}
     data = json.dumps(data)
-    feedback = requests.post(url, data = data)
-    print(feedback)
+    headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+    feedback = requests.post(url, data = data, headers = headers)
+    print(feedback.json())
 
 if __name__ == '__main__':
-    # main()
-    test()
+    main()
+    # test()
