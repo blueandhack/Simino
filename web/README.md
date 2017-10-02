@@ -1,6 +1,6 @@
-# simino-web
+# simino
 
-> simino game frontend
+> A Vue.js project
 
 ## Build Setup
 
