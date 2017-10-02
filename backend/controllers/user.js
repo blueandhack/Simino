@@ -10,7 +10,7 @@ let userController = {
       const token = req.body.token
       let user
       try {
-        user = await User.findUser({phoneNumber: phoneNumber})
+        user = await User.findUser({nickname: nickname})
       } catch (error) {
         console.error(error)
         return res.status(500).json({

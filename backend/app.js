@@ -20,11 +20,12 @@ app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(cookieParser())
-app.use(cors)
+app.use(cors())
 app.use(express.static(path.join(__dirname, 'public')))
 
 let routes = {
-  'v1/user': require('./routes/user')
+  '/v1/user': require('./routes/user'),
+  '/v1/record': require('./routes/record')
 }
 
 Object.keys(routes).forEach((key) => {
