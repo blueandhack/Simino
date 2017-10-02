@@ -6,6 +6,9 @@
         <h3>Simon X Arduino = Sim - ino</h3>
       </el-col>
       <el-col :span="24">
+          <gh-btns-star class="github" slug="blueandhack/simino" show-count></gh-btns-star>
+      </el-col>
+      <el-col :span="24">
         <div class="token">
           <el-button :span="12" :offset="6" v-on:click="getToken()">Get Token</el-button>
         </div>
@@ -64,5 +67,10 @@
 <style scoped>
   .token {
     padding: 20px;
+  }
+  .github{
+    margin: auto;
+    text-align: center;
+    float: none;
   }
 </style>
