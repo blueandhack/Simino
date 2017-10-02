@@ -15,17 +15,12 @@
       <el-col :span="12" :offset="6">
         <div>
           <el-table
-            :data="tableData"
+            :data="top"
             style="width: 100%">
-            <el-table-column
-              prop="date"
-              label="Date"
-              width="180">
-            </el-table-column>
             <el-table-column
               prop="nickname"
               label="Nickname"
-              width="180">
+              width="190">
             </el-table-column>
             <el-table-column
               prop="score"
@@ -42,23 +37,6 @@
   export default {
     data () {
       return {
-        tableData: [{
-          date: '2016-05-03',
-          nickname: 'Tom',
-          score: '12'
-        }, {
-          date: '2016-05-02',
-          nickname: 'Tom',
-          score: '11'
-        }, {
-          date: '2016-05-04',
-          nickname: 'Tom',
-          score: '33'
-        }, {
-          date: '2016-05-01',
-          nickname: 'Tom',
-          score: '22'
-        }],
         top: []
       }
     },
@@ -68,9 +46,9 @@
       },
       getTop () {
         this.$http
-          .get(`https://api.simino.xyz/record/getTop`)
+          .get(`https://api.simino.xyz/v1/record/getTop`)
           .then(({ok, data}) => {
-            this.top = data
+            this.top = data.result
           })
           .catch(err => {
             console.error(err)

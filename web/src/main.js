@@ -6,7 +6,7 @@ import ElementUI from 'element-ui'
 import App from './App'
 import router from './router'
 
-import 'element-ui/lib/theme-chalk/index.css'
+import 'element-ui/lib/theme-default/index.css'
 
 Vue.use(VueResource)
 Vue.use(ElementUI)

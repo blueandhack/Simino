@@ -7,6 +7,10 @@ const RecordSchema = new Mongoose.Schema({
     type: SchemaTypes.Number,
     require: true
   },
+  'nickname': {
+    type: SchemaTypes.String,
+    require: true
+  },
   'token': {
     type: SchemaTypes.String,
     required: true
@@ -35,11 +39,11 @@ let Record = {
       resolve(result)
     })
   },
-  'findRecord': (query) => {
+  'findRecords': (query) => {
     return new Promise(async (resolve, reject) => {
       let record
       try {
-        record = await RecordModel.find(query).lean().exec()
+        record = await RecordModel.find(query).sort({'score': -1}).limit(10)
       } catch (error) {
         console.error(error)
         reject(error)
